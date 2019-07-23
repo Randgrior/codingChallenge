@@ -1,0 +1,27 @@
+version: '3'
+
+services:
+  discovery-service:
+    build:
+      context: discovery-service
+    image: adidas/discovery-service
+    ports:
+        - 8761:8761
+
+  calculation-service:
+    build:
+      context: calculation-service
+    image: adidas/calculation-service
+    depends_on:
+        - discovery-service
+    ports:
+        - 8010:8010
+
+  city-connection-service:
+    build:
+      context: city-service
+    image: adidas/city-service
+    depends_on:
+        - discovery-service
+    ports:
+        - 8080:8080
