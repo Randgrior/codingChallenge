@@ -46,10 +46,10 @@ public class CalculationServiceImpl implements CalculationService {
 
     @Override
     public List<String> calculate(String type, String departureCity, String destinationCity) {
-        if(type.equalsIgnoreCase("less time")){
-            return calculateShortestWay(departureCity, destinationCity);
-        }else {
+        if (type.equalsIgnoreCase("less time")) {
             return calculateShortestTime(departureCity, destinationCity);
+        } else {
+            return calculateShortestWay(departureCity, destinationCity);
         }
     }
 }
